@@ -1,0 +1,43 @@
+@import "../abstracts/_mixins.scss", "../themes/_themes.scss";
+
+.div-search {
+    position: relative;
+    height: 34px;
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    @include themify($themes) {
+        background: themed(green-active);
+    }
+
+    .div-search-field {
+        position: absolute;
+        right: 0px;
+        width: calc(100% - 46px);//86%;
+        margin: 4px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        padding-left: 6px;
+
+        &::placeholder {
+            font-style: italic;
+        }
+    }
+
+    .img-search {
+        margin: 6px 6px 6px 12px;
+    }
+    .img-close{
+        margin: 11px;
+        z-index: 100;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import "../abstracts/_mixins.scss";
+@import "../themes/_themes.scss";
+
+.ol-action {
+    text-align: justify;
+    //font-size: 90%;
+    list-style-type: none;
+    counter-reset: item;
+    padding: 0 20px 0 50px;
+    min-width: 300px;
+    
+    li {
+        margin: 30px 0 30px 0;
+        position: relative;
+        opacity: 0.5;
+        font-size: 16px;
+        @media screen and (min-width: 500px) {
+            font-size: 24px;
+          }
+        min-height: 100px;
+        // display: flex;
+        // align-items: center;
+        // @include themify($themes) {
+        //     color: themed(white-active);
+        //     }
+
+        &:before {
+            content: counter(item);
+            counter-increment: item;
+            position: absolute;
+            top: 8px;
+            left: -52px;
+            border-radius: 50%;
+            font-size: 22px;
+            font-weight: 900;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include themify($themes) {
+                background: themed(main-black);
+                border: solid 2px themed(green-active);
+                color: themed(green-active);
+                }
+        }
+    }
+
+    & .li-active-scroll {
+        @include themify($themes) {
+            color: themed(white-active);
+        }
+        animation: 2.5s ease-in-out 1 opacityAnimation forwards;
+    }
+    & .li-active-scroll-partial {
+        @include themify($themes) {
+            color: themed(white-active-opacity);
+            }
+    }
+    @keyframes opacityAnimation {
+        0% {
+            opacity: 0.5;
+    
+        }
+        100% {
+            opacity: 1;
+    
+        }
+    }
+}
+
+.title-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 30px;
+    padding: 0 12px;
+    text-align: center;
+    @include themify($themes) {
+        color: themed(white-active);
+    }
+    @media screen and (min-width: 500px) {
+        font-size: 3em;
+      }
+}

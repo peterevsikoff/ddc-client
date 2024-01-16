@@ -1,0 +1,151 @@
+@import "../abstracts/_mixins.scss";
+@import "../themes/_themes.scss";
+
+.app {
+  @include themify($themes) {
+    background: themed(main-black);
+    }
+}
+
+ .app-header {
+  position: relative;
+  min-height: 70px;
+  
+  & .navbar .container-fluid{
+    padding: 0 30px;
+  }
+  
+}
+
+.navbar {
+  @include themify($themes) {
+    background: themed(main-black);
+    border-bottom: 1px solid themed(white-active-opacity) !important;
+    }
+}
+
+.body {
+  min-height: calc(100vh - 70px - 74px);
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  @include themify($themes) {
+    color: themed(white-not-active);
+    }
+}
+
+.navbar-nav {
+  
+  & li {
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .a-nav {
+    @include themify($themes) {
+      color: themed(white-active);
+      }
+    text-decoration: none;
+    font-size: 18pt;
+    opacity: 0.7;
+    cursor: pointer;
+    margin: 0 12px;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+
+  & .a-nav-active-right {
+      font-weight: 600;
+      line-height: 1;
+      opacity: 1;
+      position: relative;
+
+      @include themify($themes) {
+        color: themed(white-active);
+        }
+
+      &:after {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 3px;
+        @include themify($themes) {
+          box-shadow: 0 3px 3px 0px themed(white-active-opacity);
+          }
+        
+        content: "";
+        animation: 0.4s ease-out navbarAnimation;
+        user-select: none;
+    }
+  }
+
+  .a-nav-active-left {
+    position: relative;
+    line-height: 1;
+    font-weight: 600;
+    opacity: 1;
+
+    @include themify($themes) {
+      color: themed(white-active);
+      }
+      
+    &:after {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 3px;
+        @include themify($themes) {
+          box-shadow: 0 3px 3px 0px themed(white-active-opacity);
+          }
+        content: "";
+        animation: 0.4s ease-out navbarAnimation;
+        user-select:  none;
+    }
+}
+
+  @keyframes navbarAnimation {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+}
+
+.footer {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  @include themify($themes) {
+    border-top: 1px solid themed(white-active-opacity);
+    color: themed(white-active-opacity);
+  }
+
+  &:hover {
+    @include themify($themes) {
+        color: themed(white-active);
+      }
+  }
+}
+
+.div-zero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  @include themify($themes) {
+    color: themed(white-active-opacity);
+  }
+}

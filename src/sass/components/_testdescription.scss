@@ -1,0 +1,157 @@
+@import "../abstracts/_mixins.scss";
+@import "../themes/_themes.scss";
+
+.div-test-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 100%;
+    margin-top: 12px;
+    
+    font-size: 16px;
+        @media screen and (min-width: 500px) {
+            font-size: 22px;
+          }
+
+    @include themify($themes) {
+        background: themed(main-black);
+        color: themed(white-active);
+        }
+
+    .overflow-div {
+        overflow-y: auto;
+        max-height: 80vh;
+        
+        @media screen and (min-width: 500px) {
+            padding-right: 12px;
+        }
+    }
+
+    .div-zero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        @include themify($themes) {
+            color: themed(white-active-opacity);
+        }
+
+        &:hover {
+            @include themify($themes) {
+                color: themed(white-active);
+            }
+        }
+    }
+    .title {
+        font-weight: 600;
+        font-size: 18px;
+        @media screen and (min-width: 500px) {
+            font-size: 26px;
+        }
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .text-block {
+        text-align: justify;
+        text-indent: 1em;
+        margin: 12px 0;
+        @include themify($themes) {
+            color: themed(white-active-opacity);
+        }
+    }
+}
+
+.overflow-div::-webkit-scrollbar {
+    //@media screen and (min-width: 500px) {
+        height: 4px;
+        width: 4px;
+    //}
+}
+
+.overflow-div::-webkit-scrollbar-thumb {
+    @media screen and (min-width: 500px) {
+        border-radius: 6px;
+        @include themify($themes) {
+            background-color: themed(white-active-opacity);
+        }
+        &:hover {
+            
+            @include themify($themes) {
+                background-color: themed(white-active);
+            }
+        }
+    }
+}
+
+.questionnaire {
+    & h3 {
+        font-size: 18px;
+        @media screen and (min-width: 500px) {
+            font-size: 26px;
+        }
+        font-style: italic;
+        text-align: right;
+    }
+
+    & h4 {
+        font-size: 16px;
+        @media screen and (min-width: 500px) {
+            font-size: 20px;
+        }
+        font-style: italic;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .questions {
+        font-size: 14px;
+        @media screen and (min-width: 500px) {
+            font-size: 18px;
+        }
+        @include themify($themes) {
+            color: themed(white-active-opacity);
+        }
+    }
+}
+
+.div-description-instruction {
+    text-align: justify;
+    font-size: 16px;
+    margin: 12px 0;
+    @media screen and (min-width: 500px) {
+        font-size: 22px;
+    }
+    @include themify($themes) {
+        color: themed(white-active-opacity);
+    }
+
+    & :first-child {
+        font-style: italic;
+        text-decoration: underline;
+        @include themify($themes) {
+            color: themed(white-active);
+        }
+    }
+}
+
+.table-description {
+    width: 100%;
+    cursor: pointer;
+
+    th, td {
+        padding: 3px 6px;
+        @include themify($themes) {
+            border: 1px solid themed(white-active-opacity);
+        }
+    }
+    td {
+        font-size: 95%;
+    }
+   
+    tr:hover ~ .tr-additional, tr:not(.tr-additional):hover {
+            @include themify($themes) {
+            background: themed(white-active-opacity);
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import "../abstracts/_mixins.scss", "../themes/_themes.scss";
+
+.div-chart {
+    margin-top: 20px;
+    padding: 0 12px;
+    overflow-x: auto;
+    scroll-snap-type: y mandatory;
+
+    & .chart-container {
+        scroll-snap-align: start;
+    }
+    
+    & .title-scale-charts {
+        text-align: center;
+    }
+
+    & .custom-label {
+        font-size: 50px;
+    }
+}

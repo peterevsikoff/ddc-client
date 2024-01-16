@@ -1,0 +1,18 @@
+$themes: ( 
+    light:(
+        
+        ),
+    dark:(
+        main-black: rgba(40, 44, 52),
+        main-black-opacity: rgba(40, 44, 52, 0.5),
+        main-black-opacity-back: rgba(40, 44, 52, 0.9),
+        white-active: rgba(255, 255, 255),
+        white-active-opacity: rgba(255, 255, 255, 0.5),
+        white-not-active: rgba(102, 93, 76),
+        green-active: rgba(51, 170, 37),
+        red-active: rgba(232, 17, 35),
+    //изображения
+        pencil: url(/icons/svg/pencil-white.svg)
+        
+        )
+    );

@@ -1,0 +1,46 @@
+@import "../abstracts/_mixins.scss", "../themes/_themes.scss";
+
+.div-progress {
+    width: 50%;
+    height: 10px;
+    position: relative;
+    border-radius: 6px;
+    margin-bottom: -2px;
+
+    @include themify($themes) {
+        background: themed(white-active-opacity);
+    }
+
+    & .progress-value {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border-radius: 6px;
+        
+        @include themify($themes) {
+            background: themed(green-active);
+        }
+    }
+}
+
+.div-progress-component {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    width: 50%;
+    
+    @include themify($themes) {
+        border-bottom: 1px dotted themed(white-active-opacity);
+    }
+    
+    @media screen and (max-width: 500px) {
+        font-size: 12px;
+    }
+    @media screen and (min-width: 500px) {
+        font-size: 18px;
+    }
+
+    & :first-child {
+        margin-right: 6px;
+    }
+}

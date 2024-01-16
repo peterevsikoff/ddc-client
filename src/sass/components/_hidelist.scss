@@ -1,0 +1,55 @@
+@import "../abstracts/_mixins.scss", "../themes/_themes.scss";
+
+.hide-list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin: 12px 0;
+    @include themify($themes) {
+        background: themed(white-active-opacity);
+    }
+
+    & :first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 6px;
+        margin-right: 12px;
+        padding-bottom: 3px;
+        @include themify($themes) {
+            border: 1px solid themed(white-active);
+        }
+    }
+}
+
+.hide-list-content {
+    margin-top: 12px;
+    
+    & table {
+        width: 100%;
+        cursor: pointer;
+
+        th, td {
+            padding: 3px 6px;
+            @include themify($themes) {
+                border: 1px solid themed(white-active-opacity);
+            }
+        }
+        td {
+            font-size: 80%;
+        }
+        th {
+            font-size: 90%;
+        }
+    
+        tr:hover ~ .tr-additional, tr:not(.tr-additional):hover {
+                @include themify($themes) {
+                background: themed(white-active-opacity);
+            }
+        }
+    }
+}

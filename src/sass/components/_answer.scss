@@ -1,0 +1,113 @@
+@import "../abstracts/_mixins.scss", "../themes/_themes.scss";
+
+.div-answer {
+    display: flex;
+    //margin-bottom: 12px;
+    padding-bottom: 12px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: y mandatory;
+    //overflow: hidden;
+
+    & .div-scroll-answer-card {
+        scroll-snap-align: start;
+    }
+    
+    & .answer-card {
+        height: 70px;
+        width: 70px;
+        margin: 0 6px;
+        border-radius: 6px;
+        font-size: 10px;
+        padding: 0 4px;
+        
+        @include themify($themes) {
+            border: 1px solid themed(green-active);
+            box-shadow: 1px 1px 2px themed(green-active), -1px 1px 2px themed(green-active);
+        }
+
+        & :first-child {
+            width: 60px;
+            overflow: hidden;
+            max-height: 3rem;
+            line-height: 1.5;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            display: -webkit-box;
+        }
+
+        & :last-child {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 110%;
+            margin-top: 6px;
+            & img {
+                height: 12px;
+                width: 12px;
+                margin: 0 6px 0 2px;
+                content: url(../../icons/accept.svg);
+            }
+        }
+    }
+
+    & .answer-card-detail {
+        position: fixed;
+        top: 35%;
+        bottom: 35%;
+        left: 0;
+        right: 0;
+        margin: 12px;
+        border-radius: 6px;
+        padding: 0 6px 20px 6px;
+
+        @media screen and (max-width: 500px) {
+            font-size: 16px;
+        }
+        @media screen and (min-width: 500px) {
+            font-size: 32px;
+        }
+        
+        @include themify($themes) {
+            //border: 1px solid themed(green-active);
+            background: themed(main-black);
+            box-shadow: 0 0 0 100vh themed(main-black-opacity-back), -1px -1px 2px themed(green-active) inset, 1px -1px 2px themed(green-active) inset;
+        }
+
+        & .answer-btn-group {
+            position: absolute;
+            bottom: 6px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            justify-content: space-between;
+
+            & .btn {
+                min-width: 25%;
+            }
+        }
+
+        & img {
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            opacity: 0.5;
+            content: url(../../icons/close.svg);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.answer-detail-title {
+    text-decoration: underline;
+    margin-bottom: 12px;
+    @include themify($themes) {
+        color: themed(white-active-opacity);
+        
+    }
+}

@@ -1,0 +1,74 @@
+@import "../abstracts/_mixins.scss";
+@import "../themes/_themes.scss";
+
+
+.test-container {
+    padding: 1em;
+}
+
+.list-tests {
+    @include themify($themes) {
+        background: themed(main-black);
+        color: themed(white-active);
+        }
+
+    & ul {
+        list-style-type: none;
+        padding: 0;   
+
+        & li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 12px;
+            cursor: pointer;
+
+            @include themify($themes) {
+                color: themed(main-black-opacity);
+                background: themed(white-active);
+                
+                }
+
+            &:hover {
+                @include themify($themes) {
+                    background: themed(white-active);
+                    color: themed(main-black);
+                    //border: 1px solid themed(main-black-opacity);
+                    }
+            }
+
+            &:first-child {
+                border-radius: 6px 6px 0 0;
+            }
+            &:last-child {
+                border-radius: 0 0 6px 6px;
+            }
+
+            img {
+                content: url(../../icons/play.svg);
+                height: 14px;
+                width: 14px;
+                opacity: 0.5;
+
+                &:hover {
+                    content: url(../../icons/play-green.svg);
+                    opacity: 1;
+                }
+            }
+        }
+
+        & .active {
+            @include themify($themes) {
+                background: themed(green-active);
+                color: themed(white-active);
+            }
+
+            &:hover {
+                @include themify($themes) {
+                    box-shadow: 0 0 2px 2px themed(green-active) inset;
+                    color: themed(main-black);
+                }
+            }
+        }
+    }
+}
